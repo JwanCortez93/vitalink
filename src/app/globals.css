@@ -161,7 +161,7 @@
 
   /* ==== FORM */
   .radio-group {
-    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-muted-foreground bg-popover p-3;
+    @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-muted-foreground bg-popover-foreground p-3;
   }
 
   .checkbox-label {
@@ -170,7 +170,7 @@
 
   /* ==== File Upload */
   .file-upload {
-    @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-muted-foreground bg-popover p-5;
+    @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-muted-foreground bg-popover-foreground p-5;
   }
 
   .file-upload_label {
@@ -248,7 +248,7 @@
 
   /* =====  SHADCN OVERRIDES */
   .shad-primary-btn {
-    @apply bg-green-500 text-white !important;
+    @apply bg-primary text-white hover:brightness-110 !important;
   }
 
   .shad-danger-btn {
@@ -272,7 +272,7 @@
   }
 
   .shad-textArea {
-    @apply bg-popover placeholder:text-muted border-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply bg-popover-foreground placeholder:text-muted border-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .shad-combobox-item {
@@ -284,7 +284,7 @@
   }
 
   .shad-select-trigger {
-    @apply bg-popover  placeholder:text-muted border-muted-foreground h-11 focus:ring-0 focus:ring-offset-0 !important;
+    @apply bg-popover-foreground  placeholder:text-muted border-muted-foreground h-11 focus:ring-0 focus:ring-offset-0 !important;
   }
 
   .shad-select-content {
