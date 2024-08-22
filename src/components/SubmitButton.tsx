@@ -10,9 +10,9 @@ const SubmitButton = ({ isLoading, className, children }: ButtonProps) => {
       className={className ?? "shad-primary-btn w-full"}
     >
       {isLoading ? (
-        <div>
-          <Loader2 className="animate-spin" />
-          Loading...
+        <div className="flex items-center">
+          <Loader2 className="animate-spin h-4 w-4 mr-2" />
+          <p>Loading...</p>
         </div>
       ) : (
         children
