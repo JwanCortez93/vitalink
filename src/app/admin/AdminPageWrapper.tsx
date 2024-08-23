@@ -1,20 +1,30 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 const AdminPageWrapper = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   useEffect(() => {
-    if (!window.localStorage.getItem("VitaLinkAccessKey")) {
-      router.push("/");
+    
+    if (typeof window !== "undefined") {
+      const accessKey = window.localStorage.getItem("VitaLinkAccessKey");
+      if (!accessKey) {
+        router.push("/");
+      } else {
+        setIsAuthorized(true);
+      }
     }
   }, [router]);
 
-  if (window.localStorage.getItem("VitaLinkAccessKey")) {
-    return children;
+  
+  if (!isAuthorized) {
+    return null; 
   }
+
+  return <>{children}</>;
 };
 
 export default AdminPageWrapper;
