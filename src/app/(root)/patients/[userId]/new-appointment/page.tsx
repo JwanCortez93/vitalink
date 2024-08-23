@@ -10,11 +10,11 @@ const NewAppointmentPage = async ({ params: { userId } }: SearchParamProps) => {
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container">
         <div className="sub-container max-w-[860px] flex-1 justify-between ">
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-10">
             <Image
-              src="/logo/svg/logo-color.svg"
-              height={300}
-              width={300}
+              src="/logo/png/logo-no-background.png"
+              height={250}
+              width={250}
               alt="logo"
             />
           </div>
