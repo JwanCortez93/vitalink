@@ -5,8 +5,9 @@ import {
   APPOINTMENT_COLLECTION_ID,
   DATABASE_ID,
   databases,
+  messaging,
 } from "../appwrite.config";
-import { parseStringify } from "../utils";
+import { formatDateTime, parseStringify } from "../utils";
 import {
   CreateAppointmentParams,
   UpdateAppointmentParams,
@@ -104,8 +105,43 @@ export const updateAppointment = async ({
       throw new Error("Appointment not found");
     }
 
+    const smsMessage = `
+    Hi, it's VitaLink.
+    ${
+      type === "schedule"
+        ? `Your appointment has been scheduled for ${
+            formatDateTime(appointment.schedule).dateTime
+          } with Dr. ${appointment.primaryPhysician}. 
+          We'll see you then!`
+        : `We regret to inform you that your appointment with Dr. ${
+            appointment.primaryPhysician
+          } for ${
+            formatDateTime(appointment.schedule).dateTime
+          } has been cancelled.
+            Reason: ${appointment.cancellationReason}.
+            Visit ${process.env.BASE_URL!} to make another appointment.
+            We're sorry for the inconvinience.`
+    }`;
+
+    await sendSMSNotification(userId, smsMessage);
+
     revalidatePath("/admin");
     return parseStringify(updatedAppointment);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const sendSMSNotification = async (userId: string, content: string) => {
+  try {
+    const message = await messaging.createSms(
+      ID.unique(),
+      content,
+      [],
+      [userId]
+    );
+
+    return parseStringify(message);
   } catch (error) {
     console.log(error);
   }
