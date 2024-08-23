@@ -23,6 +23,7 @@ const NewAppointmentPage = async ({ params: { userId } }: SearchParamProps) => {
             type="create"
             userId={userId}
             patientId={patient.$id}
+            patientPhysician={patient.primaryPhysician}
           />
 
           <p className="text-14-regular mt-4 justify-items-end text-muted xl:text-left">

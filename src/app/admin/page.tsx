@@ -1,13 +1,10 @@
 import { getRecentAppointments } from "@/lib/actions/appointment.actions";
 import { CalendarClock, CalendarDays, CalendarX2 } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import StatCard from "./(components)/StatCard";
 
+import NavBar from "./(components)/NavBar";
 import { columns } from "./(components)/table/columns";
 import { DataTable } from "./(components)/table/DataTable";
-import { Button } from "@/components/ui/button";
-import NavBar from "./(components)/NavBar";
 
 const AdminPage = async () => {
   const appointments = await getRecentAppointments();

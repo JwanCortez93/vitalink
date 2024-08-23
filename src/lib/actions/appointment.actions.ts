@@ -119,7 +119,8 @@ export const updateAppointment = async ({
             formatDateTime(appointment.schedule).dateTime
           } has been cancelled.
             Reason: ${appointment.cancellationReason}.
-            Visit ${process.env.BASE_URL!} to make another appointment.
+            Visit ${process.env
+              .BASE_URL!}/patients/${userId}/new-appointment to make another appointment.
             We're sorry for the inconvinience.`
     }`;
 

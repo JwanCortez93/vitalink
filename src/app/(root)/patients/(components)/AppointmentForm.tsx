@@ -19,24 +19,25 @@ import { z } from "zod";
 import { Doctors } from "../../../../../constants";
 import { AppointmentFormProps, Status } from "../../../../../types";
 import { getAppointmentSchema } from "@/lib/validation";
+import { getPatient } from "@/lib/actions/patient.actions";
 
 const AppointmentForm = ({
   type,
   userId,
   patientId,
+  patientPhysician,
   appointment,
   setIsOpen,
 }: AppointmentFormProps) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const AppointmentFormValidation = getAppointmentSchema(type);
-  console.log(AppointmentFormValidation);
 
   const form = useForm<z.infer<typeof AppointmentFormValidation>>({
     resolver: zodResolver(AppointmentFormValidation),
     defaultValues: {
-      primaryPhysician: appointment ? appointment.primaryPhysician : "",
+      primaryPhysician: appointment ? appointment.primaryPhysician : patientPhysician,
       schedule: appointment ? new Date(appointment.schedule) : new Date(),
       reason: appointment ? appointment.reason : "",
       note: appointment ? appointment.note : "",

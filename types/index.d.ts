@@ -96,6 +96,7 @@ declare type FileUploaderProps = {
 declare type AppointmentFormProps = {
   userId: string;
   patientId: string;
+  patientPhysician: string;
   type: "create" | "cancel" | "schedule";
   appointment?: Appointment;
   setIsOpen: (open: boolean) => void;
