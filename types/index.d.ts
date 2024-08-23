@@ -91,3 +91,9 @@ declare type FileUploaderProps = {
   files: File[] | undefined;
   onChange: (files: File[]) => void;
 };
+
+declare type AppointmentFormProps = {
+  userId: string;
+  patientId: string;
+  type: "create" | "cancel" | "schedule";
+};

@@ -73,6 +73,7 @@ const RenderField = ({
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               showTimeSelect={props.showTimeSelect ?? false}
               timeInputLabel="Time:"
+              timeFormat="HH:mm"
               wrapperClassName="date-picker"
             />
           </FormControl>
@@ -126,7 +127,7 @@ const RenderField = ({
 };
 
 const CustomFormField = (props: CustomFormFieldProps) => {
-  const { control, fieldType, name, label, icon, placeholder } = props;
+  const { control, fieldType, name, label } = props;
 
   return (
     <FormField

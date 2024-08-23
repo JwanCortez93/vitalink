@@ -75,6 +75,7 @@ const RegisterForm = ({ user }: { user: User }) => {
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   }
   return (
     <Form {...form}>

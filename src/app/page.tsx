@@ -16,7 +16,7 @@ export default function Home() {
             />
           </div>
           <PatientForm />
-          <div className="text-14-regular mt-20 flex justify-between">
+          <div className="text-14-regular mt-2 flex justify-between">
             <p className="justify-items-end text-muted xl:text-left">
               © 2024 VitaLink
             </p>
