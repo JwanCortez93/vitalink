@@ -1,5 +1,6 @@
 import { ReactElement, ReactNode } from "react";
 import { Control } from "react-hook-form";
+import { Appointment } from "./appwrite.types";
 
 declare type FormFieldType =
   | "input"
@@ -96,4 +97,20 @@ declare type AppointmentFormProps = {
   userId: string;
   patientId: string;
   type: "create" | "cancel" | "schedule";
+  appointment?: Appointment;
+  setIsOpen: (open: boolean) => void;
+};
+
+declare type StatCardProps = {
+  icon: ReactElement;
+  type: "appointments" | "pending" | "cancelled";
+  count: number;
+  label: string;
+};
+
+declare type AppointmentModalProps = {
+  type: "schedule" | "cancel";
+  patientId: string;
+  userId: string;
+  appointment?: Appointment;
 };
